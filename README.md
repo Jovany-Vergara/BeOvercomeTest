@@ -1,4 +1,17 @@
 
+# Cómo ejecutar y arreglar problemas del proyecto
+* IDE
+- Para fines prácticos y de Plugins de Google, se recomienda el uso de Eclipse
+
+* Actualizar el proyecto con Maven
+- Una vez clonado el repositorio, antes de iniciar, se recomienda ejecutar el comando Maven -> Update Project... para que se instalen las dependencias completas
+- Para ejecutar el proyecto por primera vez, se recomienda el comando de run as -> Maven build... con el goal "appengine:run" 
+- Si ya se cuenta con el Plugin de Google Cloud, se puede ejecutar con el comando run as -> App Engine 
+
+* Limpiar el proyecto
+- Si hay errores, se puede ejecutar una rutina de limpieza de tres pasos: Limpiar el proyecto desde Project -> Clean, Limpiar el servidor desde la lista de servidores con el comando "Clean", Limpiar con "run as -> maven clean" y proceder a ejecutar nuevamente un "maven install"
+
+
 # Cómo agregar controller
 * Crear controller java
 ```java
