@@ -24,8 +24,14 @@
 		<put-attribute name="body" cascade="true" value="/WEB-INF/templates/pages/login.jsp" />
 	</definition>
 	
+	<definition name="page.create" extends="base">
+		<put-attribute name="title" value="Create" cascade="true" />
+		<put-attribute name="body" cascade="true" value="/WEB-INF/templates/pages/create.jsp" />
+	</definition>
+	<definition name="page.ticket" extends="base">
+		<put-attribute name="title" value="Ticket" cascade="true" />
+		<put-attribute name="body" cascade="true" value="/WEB-INF/templates/pages/ticket.jsp" />
+	</definition>
 </tiles-definitions>
 
 <!-- Invoice -->
-
-

@@ -13,9 +13,10 @@
 	
 }
 
-
- 
- 
+.create-page {
+    background-color: white;
+}
+  
  .list-group-item-dark{ 
   	color: var(--textActiveWhite)!important; 
    background-color:var(--bgPrincipalCona)!important;
@@ -303,11 +304,11 @@ tr.template {
 .img-medium{
 	width:100px;
 .simInline{display: inline-table!important ;width:18%!important; padding: 5px!important;}
-
+}
 @media (max-width: 767px){
     .borderTd{border-top:1px solid #daeaf8!important;}
     .hidden-xs{visibility: hidden;}
-    .simTd{padding: 4px; background: #e9e9e9;}3
+    .simTd{padding: 4px; background: #e9e9e9;}
     .simInline{display: inline-table!important ;width:20%!important; padding: 5px!important;}
 
 }

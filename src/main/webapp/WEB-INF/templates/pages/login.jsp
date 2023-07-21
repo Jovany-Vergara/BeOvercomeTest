@@ -13,7 +13,7 @@
 			</c:if>
 			<form id="loginForm" name='f' action="/j_spring_security_check" method='POST' class="">
 				<div class="form-group">
-					<label for="exampleInputEmail1"><i class="fas fa-at text-secondary"></i> Correo Electrónico:</label> <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp"
+					<label for="exampleInputEmail1"><i class="fas fa-at text-secondary"></i> Correo Electrónico:</label> <input class="form-control" id="exampleInputEmail1" type="text" aria-describedby="emailHelp"
 						placeholder="Correo Electrónico:" name="j_username" required>
 				</div>
 				<div class="form-group">
@@ -36,7 +36,7 @@
 			</div>
 			<form>
 				<div class="form-group">
-					<input class="form-control" id="email" type="email" aria-describedby="emailHelp" placeholder="ejemplo@dominio.com" style="text-align: center">
+					<input class="form-control" id="email" type="text" aria-describedby="emailHelp" placeholder="ejemplo@dominio.com" style="text-align: center">
 				</div>
 				<div class="form-group">
 					<button id="sendMail" class="btn btn-primary btn-block">Enviar</button>

@@ -51,7 +51,8 @@
  	<authentication-manager alias="authentication-manager">
  		<authentication-provider>
  			<user-service>
-				<user name="test" password="123" authorities="admin" />
+				<user name="test@admin.com" password="123" authorities="admin" />
+				<user name="reviewer@admin.com" password="123" authorities="reviewer" />
 	    	</user-service>
  		</authentication-provider>
 <!--      	<authentication-provider ref="OcAuthenticationProvider" /> -->
