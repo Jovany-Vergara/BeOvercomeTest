@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.googlecode.objectify.ObjectifyService;
-import com.overcome.test.entity.ExampleEntity;
 import com.overcome.test.entity.TicketEntity;
 import com.overcome.test.service.ExampleEntityService;
 import com.overcome.test.command.TicketCommand;
@@ -36,18 +36,13 @@ public class GlobalController {
 		return new ModelAndView("page.create");
 	}
 
-	@RequestMapping("/ticket")
-  public ModelAndView ticket() {
+	@RequestMapping("/ticket/{id}")
+  public ModelAndView ticket(@PathVariable Long id) {
+		System.out.println("*++++++++++++++***************");
+		System.out.println(id);
 		ModelAndView modelAndView = new ModelAndView("page.ticket");
-    ExampleEntity e = ObjectifyService.ofy().cache(true).load().type(ExampleEntity.class).id(22323L).now();
-		List<TicketEntity> tickets = ObjectifyService.ofy().load().type(TicketEntity.class).list();
-		Map<String, List<TicketEntity>> rightHereMap = new HashMap<String, List<TicketEntity>>();
-		rightHereMap.put("tickets", tickets);
-
-		modelAndView.addObject("example", e);
-		modelAndView.addObject("ticket", tickets.get(0));
-		modelAndView.addObject("rightHereMap", rightHereMap);
-		System.out.println(e.toString());
+    TicketEntity ticket = ObjectifyService.ofy().cache(true).load().type(TicketEntity.class).id(id).now();
+		modelAndView.addObject("ticket", ticket);
 
 		return modelAndView;
   }
