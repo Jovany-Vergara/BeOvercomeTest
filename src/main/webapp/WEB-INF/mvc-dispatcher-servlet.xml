@@ -44,6 +44,7 @@
 		<constructor-arg name="classes">
 			<array value-type="java.lang.Class">
 				<value>com.overcome.test.entity.ExampleEntity</value>
+				<value>com.overcome.test.entity.TicketEntity</value>
 			</array>
 		</constructor-arg>
 	</bean>

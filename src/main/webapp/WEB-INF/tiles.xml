@@ -32,6 +32,10 @@
 		<put-attribute name="title" value="Ticket" cascade="true" />
 		<put-attribute name="body" cascade="true" value="/WEB-INF/templates/pages/ticket.jsp" />
 	</definition>
+	<definition name="page.list" extends="base">
+		<put-attribute name="title" value="List" cascade="true" />
+		<put-attribute name="body" cascade="true" value="/WEB-INF/templates/pages/list.jsp" />
+	</definition>
 </tiles-definitions>
 
 <!-- Invoice -->
