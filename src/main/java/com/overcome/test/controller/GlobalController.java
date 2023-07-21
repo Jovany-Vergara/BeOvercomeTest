@@ -44,7 +44,7 @@ public class GlobalController {
 
 	@PostMapping("/create")
   public ModelAndView createTicket(@RequestBody MultiValueMap<String, String> formData) {
-		System.out.println("*++++++++++++++");
+		System.out.println("*++++++++++++++" +10);
 		System.out.println(formData.get("title").toString());
 		System.out.println(formData);
 		ModelAndView modelAndView = new ModelAndView("page.list");
