@@ -13,7 +13,7 @@
 			</c:if>
 			<form id="loginForm" name='f' action="/j_spring_security_check" method='POST' class="">
 				<div class="form-group">
-					<label for="exampleInputEmail1"><i class="fas fa-at text-secondary"></i> Correo Electrónico:</label> <input class="form-control" id="exampleInputEmail1" type="text" aria-describedby="emailHelp"
+					<label for="exampleInputEmail1"><i class="fas fa-at text-secondary"></i> Correo Electrónico:</label> <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp"
 						placeholder="Correo Electrónico:" name="j_username" required>
 				</div>
 				<div class="form-group">
