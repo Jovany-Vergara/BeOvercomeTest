@@ -95,13 +95,10 @@ public class GlobalController {
   public ModelAndView archived() {
       ModelAndView modelAndView = new ModelAndView("page.list");
 			// Not working
-    	//List<TicketEntity> tickets = ObjectifyService.ofy().load().type(TicketEntity.class).filter("status", "archived").list();
-			List<TicketEntity> tickets = ObjectifyService.ofy().load().type(TicketEntity.class).list();
-			Predicate<TicketEntity> statusArchived = ticket -> ticket.getStatus().equals("archived");
-			List<TicketEntity> ticketsFilter = tickets.stream().filter(statusArchived).collect(Collectors.toList());
-      TicketCommand command = new TicketCommand(ticketsFilter, ticketsFilter.size());
-      modelAndView.addObject("listTickets", ticketsFilter);
-      modelAndView.addObject("size", ticketsFilter.size());
+    	List<TicketEntity> tickets = ObjectifyService.ofy().load().type(TicketEntity.class).filter("status =", "archived").list();
+      TicketCommand command = new TicketCommand(tickets, tickets.size());
+      modelAndView.addObject("listTickets", tickets);
+      modelAndView.addObject("size", tickets.size());
       modelAndView.addObject("command", command);
 
       return modelAndView;

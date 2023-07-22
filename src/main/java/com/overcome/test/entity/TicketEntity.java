@@ -2,6 +2,8 @@ package com.overcome.test.entity;
 
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
@@ -43,7 +45,7 @@ public class TicketEntity {
   String versionSoftware;
   String problemDescription;
   String uploadFile;
-  String status;
+  @Index String status;
 
   @Override
   public String toString() {
