@@ -92,4 +92,10 @@ public class GlobalController {
 		ticketEntityService.save(ticket);
 		return new RedirectView("tickets");
 	}
+
+	@PostMapping("/updateStatus")
+	public RedirectView updateStatus(@RequestParam Long id, @RequestParam Long status) {
+
+		return new RedirectView("tickets");
+	}
 }

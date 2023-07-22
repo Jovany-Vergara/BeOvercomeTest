@@ -21,6 +21,7 @@
               <th scope="col">Descripción</th>
               <th scope="col">Archivo</th>
               <th scope="col">Detalles</th>
+              <th scope="col">Estatus</th>
             </tr>
           </thead>
           <tbody>
@@ -36,7 +37,12 @@
                 <td>${ticket.versionSoftware}</td>
                 <td>${ticket.problemDescription}</td>
                 <td>${ticket.uploadFile}</td>
-                <td><button type="button" class="btn btn-light">Detalle</button></td>
+                <td>${ticket.status}</td>
+                <td>
+                  <form action="/ticket/${ticket.id}" method="get">
+                    <button type="submit" class="btn btn-light">Detalle</button>
+                  </form>
+                </td>
               </tr>
             </c:forEach>
           </tbody>

@@ -22,31 +22,34 @@
               <th scope="col">Descripción</th>
               <th scope="col">Archivo</th>
               <th scope="col">Estatus de los Tickets</th>
-              <th scope="col">Editar</th>
               <th scope="col">Archivar</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td scope="row">${ticket.title}</td>
-              <td>${ticket.createDate}</td>
-              <td>${ticket.responsableName}</td>
-              <td>${ticket.responsibleTeam}</td>
-              <td>${ticket.incidentType}</td>
-              <td>${ticket.incidenceSeverity}</td>
-              <td>${ticket.versionSoftware}</td>
-              <td>${ticket.problemDescription}</td>
-              <td>${ticket.uploadFile}</td>
+                <td scope="row">${ticket.title}</td>
+                <td>${ticket.createDate}</td>
+                <td>${ticket.responsableName}</td>
+                <td>${ticket.responsibleTeam}</td>
+                <td>${ticket.incidentType}</td>
+                <td>${ticket.incidenceSeverity}</td>
+                <td>${ticket.versionSoftware}</td>
+                <td>${ticket.problemDescription}</td>
+                <td>${ticket.uploadFile}</td>
+                <td>
+                  <form action="/updateStatus" method="post">
+                    <input type="text" name="id" value="${ticket.id}">
+                    <select class="custom-select" id="status" name="status">
+                      <option value="created" ${ticket.status == 'created' ? 'selected="selected"' : ''}>Nuevo</option>
+                      <option value="process" ${ticket.status == 'process' ? 'selected="selected"' : ''}>En proceso</option>
+                      <option value="attend"  ${ticket.status == 'attend' ? 'selected="selected"' : ''}>Atendido</option>
+                    </select>
+                    <button type="submit" class="btn btn-success">Cambiar</button>
+                  </form>
+                </td>
               <td>
-                <select class="custom-select" id="inputGroupSelect02">
-                  <option selected>Elegir...</option>
-                  <option value="1">Nuevo</option>
-                  <option value="2">En proceso</option>
-                  <option value="3">Atendido</option>
-                </select>
+                <a href="#" class="btn btn-danger">Archivar</a>
               </td>
-              <td><a href="#" class="btn btn-success">Editar </a></td>
-              <td><a href="#" class="btn btn-danger">Archivar</a></td>
             </tr>
           </tbody>
         </table>
