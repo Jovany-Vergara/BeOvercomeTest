@@ -4,7 +4,8 @@
 <%@page import="java.util.Arrays"%>
 <div class="container ticket-page text-light">
   Ticket
+  Id: ${ticket.id}
+  <br><br>
   Name: ${ticket.title}
-  <br>
 
 </div>
