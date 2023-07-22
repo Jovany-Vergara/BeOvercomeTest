@@ -30,6 +30,11 @@ public class GlobalController {
 		return new ModelAndView("page.login");
 	}
 
+	@RequestMapping("/")
+	public ModelAndView home(){
+		return new ModelAndView("page.create");
+	}
+
 	@RequestMapping("/create")
 	public ModelAndView create() {
 		//ObjectifyService.ofy().save().entity(new ExampleEntity(22323L, "Diego"));
