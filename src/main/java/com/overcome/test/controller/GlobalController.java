@@ -44,8 +44,6 @@ public class GlobalController {
 
 	@RequestMapping("/ticket/{id}")
   public ModelAndView ticket(@PathVariable Long id) {
-		System.out.println("*++++++++++++++***************");
-		System.out.println(id);
 		ModelAndView modelAndView = new ModelAndView("page.ticket");
     TicketEntity ticket = ObjectifyService.ofy().cache(true).load().type(TicketEntity.class).id(id).now();
 		modelAndView.addObject("ticket", ticket);
@@ -55,9 +53,6 @@ public class GlobalController {
 
 	@PostMapping("/create")
   public RedirectView createTicket(@RequestBody MultiValueMap<String, String> formData) {
-		System.out.println("*++++++++++++++***************");
-		System.out.println(formData.get("title").toString());
-		System.out.println(formData);
 		TicketEntity ticketEntity = new TicketEntity(
 			formData.get("title").get(0).toString(),
 			formData.get("responsableName").get(0).toString(),
@@ -85,13 +80,25 @@ public class GlobalController {
 		return modelAndView;
   }
 
-	@PostMapping
+	@PostMapping("/archived")
 	public RedirectView archived(@RequestParam Long id) {
     TicketEntity ticket = ObjectifyService.ofy().load().type(TicketEntity.class).id(id).now();
 		ticket.setStatus("archived");
 		ticketEntityService.save(ticket);
 		return new RedirectView("tickets");
 	}
+
+	@RequestMapping ("/archived")
+  public ModelAndView archived() {
+      ModelAndView modelAndView = new ModelAndView("page.list");
+      List<TicketEntity> tickets = ObjectifyService.ofy().load().type(TicketEntity.class).list();
+      TicketCommand command = new TicketCommand(tickets, tickets.size());
+      modelAndView.addObject("listTickets", tickets);
+      modelAndView.addObject("size", tickets.size());
+      modelAndView.addObject("command", command);
+
+      return modelAndView;
+    }
 
 	@PostMapping("/updateStatus")
 	public RedirectView updateStatus(@RequestBody MultiValueMap<String, String> formData) {

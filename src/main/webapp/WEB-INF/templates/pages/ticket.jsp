@@ -48,7 +48,10 @@
                   </form>
                 </td>
               <td>
-                <a href="#" class="btn btn-danger">Archivar</a>
+                <form action="/archived" method="post">
+                  <input type="hidden" id="id" name="id" value="${ticket.id}">
+                  <button type="submit" class="btn btn-danger">Archivar</button>
+                </form>
               </td>
             </tr>
           </tbody>
