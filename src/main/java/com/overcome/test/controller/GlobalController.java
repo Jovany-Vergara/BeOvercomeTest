@@ -16,14 +16,14 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import com.googlecode.objectify.ObjectifyService;
 import com.overcome.test.entity.TicketEntity;
-import com.overcome.test.service.ExampleEntityService;
+import com.overcome.test.service.TicketEntityService;
 import com.overcome.test.command.TicketCommand;
+import com.overcome.test.ServiceFactory;
 
-@Controller 
+@Controller
 public class GlobalController {
 
-	@Autowired
-	ExampleEntityService exampleEntityService;
+	TicketEntityService ticketEntityService = ServiceFactory.getInstance().getTicketEntityService();
 
 	@RequestMapping("/login")
 	public ModelAndView showLogin() {

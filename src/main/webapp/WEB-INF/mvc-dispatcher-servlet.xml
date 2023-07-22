@@ -50,15 +50,15 @@
 	</bean>
 
 	<bean id="ServiceFactory" class="com.overcome.test.ServiceFactory" factory-method="getInstance">
-		<property name="exampleEntityService" ref="exampleEntityService" />
+		<property name="ticketEntityService" ref="ticketEntityService" />
 	</bean>
 
 	<!-- USER -->
 	<bean id="exampleEntityDao" class="com.overcome.dao.ObjectifyDao">
 		<constructor-arg name="clazz" value="com.overcome.test.entity.ExampleEntity" />
 	</bean>
-	<bean id="exampleEntityService"
-		class="com.overcome.test.service.impl.ExampleEntityServiceImpl">
+	<bean id="ticketEntityService"
+		class="com.overcome.test.service.impl.TicketEntityServiceImpl">
 		<property name="objectifyDao" ref="exampleEntityDao" />
 	</bean>
 	
