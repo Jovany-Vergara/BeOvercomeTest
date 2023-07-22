@@ -7,10 +7,12 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -37,7 +39,6 @@ public class GlobalController {
 
 	@RequestMapping("/create")
 	public ModelAndView create() {
-		//ObjectifyService.ofy().save().entity(new ExampleEntity(22323L, "Diego"));
 		return new ModelAndView("page.create");
 	}
 
@@ -67,15 +68,7 @@ public class GlobalController {
 			formData.get("problemDescription").toString(),
 			formData.get("uploadFile").toString()
 			);
-		//TicketEntity ticketEntity = new TicketEntity("title");
-		ObjectifyService.ofy().save().entity(ticketEntity);
-
-		System.out.println(ticketEntity.toString());
-		System.out.println("****************");
-		//TicketEntity ticketEntity = new TicketEntity(
-		//	formData.get("description").toString()
-		//	);
-		//System.out.println(ticketEntity.toString());
+		ticketEntityService.save(ticketEntity);
 
 		return new RedirectView("tickets");
   }
@@ -84,16 +77,20 @@ public class GlobalController {
   public ModelAndView tickets() {
 		ModelAndView modelAndView = new ModelAndView("page.list");
 		List<TicketEntity> tickets = ObjectifyService.ofy().load().type(TicketEntity.class).list();
-		System.out.println("****************");
-		System.out.println(tickets.size());
-		//Map<String, List<TicketEntity>> rightHereMap = new HashMap<String, List<TicketEntity>>();
-		//rightHereMap.put("tickets", tickets);
 		TicketCommand command = new TicketCommand(tickets, tickets.size());
-		//ObjectifyService.ofy().delete().entities(tickets);
+		ObjectifyService.ofy().delete().entities(tickets);
 		modelAndView.addObject("listTickets", tickets);
 		modelAndView.addObject("size", tickets.size());
 		modelAndView.addObject("command", command);
 
 		return modelAndView;
   }
+
+	@PostMapping
+	public RedirectView archived(@RequestParam Long id) {
+    TicketEntity ticket = ObjectifyService.ofy().load().type(TicketEntity.class).id(id).now();
+		ticket.setStatus("archived");
+		ticketEntityService.save(ticket);
+		return new RedirectView("tickets");
+	}
 }

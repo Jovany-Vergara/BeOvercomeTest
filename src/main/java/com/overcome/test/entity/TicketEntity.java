@@ -30,6 +30,7 @@ public class TicketEntity {
     this.versionSoftware = versionSoftware;
     this.problemDescription = problemDescription;
     this.uploadFile = uploadFile;
+    this.status = "created";
   }
 
   @Id Long id;
@@ -42,6 +43,7 @@ public class TicketEntity {
   String versionSoftware;
   String problemDescription;
   String uploadFile;
+  String status;
 
   @Override
   public String toString() {
