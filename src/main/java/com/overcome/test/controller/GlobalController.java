@@ -78,7 +78,6 @@ public class GlobalController {
 		ModelAndView modelAndView = new ModelAndView("page.list");
 		List<TicketEntity> tickets = ObjectifyService.ofy().load().type(TicketEntity.class).list();
 		TicketCommand command = new TicketCommand(tickets, tickets.size());
-		ObjectifyService.ofy().delete().entities(tickets);
 		modelAndView.addObject("listTickets", tickets);
 		modelAndView.addObject("size", tickets.size());
 		modelAndView.addObject("command", command);
