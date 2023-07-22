@@ -21,7 +21,9 @@
               <th scope="col">Versión Incidencia</th>
               <th scope="col">Descripción</th>
               <th scope="col">Archivo</th>
+              <th scope="col">Estatus de los Tickets</th>
               <th scope="col">Editar</th>
+              <th scope="col">Archivar</th>
             </tr>
           </thead>
           <tbody>
@@ -35,7 +37,16 @@
               <td>${ticket.versionSoftware}</td>
               <td>${ticket.problemDescription}</td>
               <td>${ticket.uploadFile}</td>
+              <td>
+                <select class="custom-select" id="inputGroupSelect02">
+                  <option selected>Elegir...</option>
+                  <option value="1">Nuevo</option>
+                  <option value="2">En proceso</option>
+                  <option value="3">Atendido</option>
+                </select>
+              </td>
               <td><a href="#" class="btn btn-success">Editar</a></td>
+              <td><a href="#" class="btn btn-danger">Archivar</a></td>
             </tr>
           </tbody>
         </table>
