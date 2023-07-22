@@ -45,7 +45,7 @@
                   <option value="3">Atendido</option>
                 </select>
               </td>
-              <td><a href="#" class="btn btn-success">Editar</a></td>
+              <td><a href="#" class="btn btn-success">Editar </a></td>
               <td><a href="#" class="btn btn-danger">Archivar</a></td>
             </tr>
           </tbody>
