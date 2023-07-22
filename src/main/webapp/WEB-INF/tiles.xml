@@ -35,6 +35,10 @@
 	<definition name="page.list" extends="base">
 		<put-attribute name="title" value="List" cascade="true" />
 		<put-attribute name="body" cascade="true" value="/WEB-INF/templates/pages/list.jsp" />
+	</definition>	
+	<definition name="page.archived" extends="base">
+		<put-attribute name="title" value="Archived" cascade="true" />
+		<put-attribute name="body" cascade="true" value="/WEB-INF/templates/pages/archived.jsp" />
 	</definition>
 </tiles-definitions>
 
