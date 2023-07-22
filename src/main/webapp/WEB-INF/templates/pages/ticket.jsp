@@ -38,7 +38,7 @@
                 <td>${ticket.uploadFile}</td>
                 <td>
                   <form action="/updateStatus" method="post">
-                    <input type="text" name="id" value="${ticket.id}">
+                    <input type="hidden" name="id" id="id" value="${ticket.id}">
                     <select class="custom-select" id="status" name="status">
                       <option value="created" ${ticket.status == 'created' ? 'selected="selected"' : ''}>Nuevo</option>
                       <option value="process" ${ticket.status == 'process' ? 'selected="selected"' : ''}>En proceso</option>

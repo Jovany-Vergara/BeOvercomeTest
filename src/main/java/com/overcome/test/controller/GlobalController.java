@@ -59,14 +59,14 @@ public class GlobalController {
 		System.out.println(formData.get("title").toString());
 		System.out.println(formData);
 		TicketEntity ticketEntity = new TicketEntity(
-			formData.get("title").toString(),
-			formData.get("responsableName").toString(),
-			formData.get("responsibleTeam").toString(),
-			formData.get("incidentType").toString(),
-			formData.get("incidenceSeverity").toString(),
-			formData.get("versionSoftware").toString(),
-			formData.get("problemDescription").toString(),
-			formData.get("uploadFile").toString()
+			formData.get("title").get(0).toString(),
+			formData.get("responsableName").get(0).toString(),
+			formData.get("responsibleTeam").get(0).toString(),
+			formData.get("incidentType").get(0).toString(),
+			formData.get("incidenceSeverity").get(0).toString(),
+			formData.get("versionSoftware").get(0).toString(),
+			formData.get("problemDescription").get(0).toString(),
+			formData.get("uploadFile").get(0).toString()
 			);
 		ticketEntityService.save(ticketEntity);
 
@@ -94,8 +94,11 @@ public class GlobalController {
 	}
 
 	@PostMapping("/updateStatus")
-	public RedirectView updateStatus(@RequestParam Long id, @RequestParam Long status) {
-
+	public RedirectView updateStatus(@RequestBody MultiValueMap<String, String> formData) {
+		Long idTicket = Long.parseLong(formData.get("id").get(0));
+    TicketEntity ticket = ObjectifyService.ofy().load().type(TicketEntity.class).id(idTicket).now();
+		ticket.setStatus(formData.get("status").get(0).toString());
+		ticketEntityService.save(ticket);
 		return new RedirectView("tickets");
 	}
 }
