@@ -6,11 +6,19 @@
     <h5 class="card-header">Numero de Tickets ${size}</h5>
     <div class="card-body">
       <h5 class="card-title">Lista de Tickets</h5>
+      <div class="d-flex flex-row">
+        <form action="/archived" method="get">
+          <button type="submit" class="btn btn-danger mb-3">Archivados</button>
+        </form>
+        <form action="/tickets" method="get">
+          <button type="submit" class="btn btn-info mb-3">Lista Tickets</button>
+        </form>
+      </div>
       <p class="card-text">
         <table class="table table-striped table-primary">
           <thead>
             <tr>
-              <th scope="col">ID</th>
+              <th scope="col">Número de Ticket</th>
               <th scope="col">Titile</th>
               <th scope="col">Fecha Ticket</th>
               <th scope="col">Nombre Responsable</th>
@@ -20,8 +28,8 @@
               <th scope="col">Versión Incidencia</th>
               <th scope="col">Descripción</th>
               <th scope="col">Archivo</th>
-              <th scope="col">Detalles</th>
               <th scope="col">Estatus</th>
+              <th scope="col">Detalles</th>
             </tr>
           </thead>
           <tbody>

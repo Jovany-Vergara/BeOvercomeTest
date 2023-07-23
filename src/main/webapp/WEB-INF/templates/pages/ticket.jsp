@@ -5,9 +5,12 @@
 <div class="container ticket-page bg-dark mb-6">
 
   <div class="card">
-    <h5 class="card-header">Detalles</h5>
+    <h5 class="card-header">Detalles del Ticket</h5>
     <div class="card-body">
-      <h5 class="card-title ">Detalles del ticket ${ticket.id}</h5>
+      <h5 class="card-title ">Número de Ticket: ${ticket.id}</h5>
+      <form action="/tickets" method="get">
+        <button type="submit" class="btn btn-info mb-3">Lista Tickets</button>
+      </form>
       <p class="card-text">
         <table class="table table-striped table-info">
           <thead>

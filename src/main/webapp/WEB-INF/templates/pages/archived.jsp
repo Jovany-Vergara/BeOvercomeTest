@@ -10,7 +10,7 @@
         <table class="table table-striped table-primary">
           <thead>
             <tr>
-              <th scope="col">ID</th>
+              <th scope="col">Número de Ticket</th>
               <th scope="col">Titile</th>
               <th scope="col">Fecha Ticket</th>
               <th scope="col">Nombre Responsable</th>
