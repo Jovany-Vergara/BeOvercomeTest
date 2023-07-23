@@ -17,13 +17,13 @@
     background-color: white;
 }
 .status-created {
-    background-color: #24BDB1;
+    background-color: #63b2f7;
 }
 .status-attend {
-    background-color: #ff9800;
+    background-color: #f36e27;
 }
 .status-process {
-    background-color: #527BFF;
+    background-color: #72fc72;
 }
  .list-group-item-dark{ 
   	color: var(--textActiveWhite)!important; 
