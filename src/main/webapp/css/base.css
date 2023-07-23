@@ -16,7 +16,15 @@
 .create-page {
     background-color: white;
 }
-  
+.status-created {
+    background-color: #24BDB1;
+}
+.status-attend {
+    background-color: #ff9800;
+}
+.status-process {
+    background-color: #527BFF;
+}
  .list-group-item-dark{ 
   	color: var(--textActiveWhite)!important; 
    background-color:var(--bgPrincipalCona)!important;

@@ -1,5 +1,6 @@
 package com.overcome.test.controller;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -73,8 +74,12 @@ public class GlobalController {
 
 	@RequestMapping("/tickets")
   public ModelAndView tickets() {
+		List<String> statusIn = new ArrayList<String>();
+		statusIn.add("created");
+		statusIn.add("process");
+		statusIn.add("attend");
 		ModelAndView modelAndView = new ModelAndView("page.list");
-		List<TicketEntity> tickets = ObjectifyService.ofy().load().type(TicketEntity.class).list();
+    List<TicketEntity> tickets = ObjectifyService.ofy().load().type(TicketEntity.class).filter("status in", statusIn).list();
 		TicketCommand command = new TicketCommand(tickets, tickets.size());
 		modelAndView.addObject("listTickets", tickets);
 		modelAndView.addObject("size", tickets.size());

@@ -37,7 +37,9 @@
                 <td>${ticket.versionSoftware}</td>
                 <td>${ticket.problemDescription}</td>
                 <td>${ticket.uploadFile}</td>
-                <td>${ticket.status}</td>
+                <td class="status-${ticket.status}">
+                  ${ticket.status}
+                </td>
                 <td>
                   <form action="/ticket/${ticket.id}" method="get">
                     <button type="submit" class="btn btn-light">Detalle</button>
