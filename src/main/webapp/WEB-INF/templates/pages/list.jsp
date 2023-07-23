@@ -13,6 +13,9 @@
         <form action="/tickets" method="get">
           <button type="submit" class="btn btn-info mb-3">Lista Tickets</button>
         </form>
+        <form action="/create" method="get">
+          <button type="submit" class="btn btn-primary mb-3">Crear Ticket</button>
+        </form>
       </div>
       <p class="card-text">
         <table class="table table-striped table-primary">
