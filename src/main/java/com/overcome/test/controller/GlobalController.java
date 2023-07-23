@@ -99,7 +99,6 @@ public class GlobalController {
 	@RequestMapping ("/archived")
   public ModelAndView archived() {
       ModelAndView modelAndView = new ModelAndView("page.list");
-			// Not working
     	List<TicketEntity> tickets = ObjectifyService.ofy().load().type(TicketEntity.class).filter("status =", "archived").list();
       TicketCommand command = new TicketCommand(tickets, tickets.size());
       modelAndView.addObject("listTickets", tickets);
