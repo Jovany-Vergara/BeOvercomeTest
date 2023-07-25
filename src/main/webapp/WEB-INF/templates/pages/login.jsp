@@ -36,7 +36,7 @@
 			</div>
 			<form>
 				<div class="form-group">
-					<input class="form-control" id="email" type="email" aria-describedby="emailHelp" placeholder="ejemplo@dominio.com" style="text-align: center">
+					<input class="form-control" id="email" type="text" aria-describedby="emailHelp" placeholder="ejemplo@dominio.com" style="text-align: center">
 				</div>
 				<div class="form-group">
 					<button id="sendMail" class="btn btn-primary btn-block">Enviar</button>
